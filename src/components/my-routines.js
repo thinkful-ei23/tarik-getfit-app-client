@@ -1,17 +1,22 @@
-import React from 'React';
+import React from 'react';
+import {connect} from 'react-redux';
+import { fetchRoutines } from '../actions/routines';
 
 export class MyRoutines extends React.Component {
-  
+  componentDidMount() {
+    this.props.dispatch(fetchRoutines());
+  }
+
   render () {
     const routines = this.props.routines.map((routine, index) => (
       <li className="routine" key={index}>
         <span>{routine.title}</span>
-        <span>{routine.description}</span>
+        <p>Description/Notes: {routine.description}</p>
         <ul>
           <span>Exercises:</span>
           {routine.exercises.map(exercise => (
             <li>
-              <span>{exercise.name}</span>
+              <p>{exercise.name}</p>
               <span>Sets: {exercise.sets}</span>
               <span>Reps: {exercise.reps}</span>
             </li>
@@ -34,3 +39,9 @@ export class MyRoutines extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  routines: state.routines
+});
+
+export default connect(mapStateToProps)(MyRoutines);
