@@ -18,7 +18,6 @@ export const fetchRoutinesError = (error) => ({
 });
 
 export const fetchRoutines = () => dispatch => {
-  console.log(API_BASE_URL);
   dispatch(fetchRoutinesRequest());
   fetch(`${API_BASE_URL}/api/routines`, {
     method: 'GET',

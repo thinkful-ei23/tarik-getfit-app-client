@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { fetchRoutines } from '../actions/routines';
+import NewRoutine from './new-routine';
 
 export class MyRoutines extends React.Component {
   componentDidMount() {
@@ -14,8 +15,8 @@ export class MyRoutines extends React.Component {
         <p>Description/Notes: {routine.description}</p>
         <ul>
           <span>Exercises:</span>
-          {routine.exercises.map(exercise => (
-            <li>
+          {routine.exercises.map((exercise, index) => (
+            <li key={index}>
               <p>{exercise.name}</p>
               <span>Sets: {exercise.sets}</span>
               <span>Reps: {exercise.reps}</span>
@@ -24,8 +25,8 @@ export class MyRoutines extends React.Component {
         </ul>
         <ul>
           <span>Tags:</span>
-          {routine.tags.map(tag => (
-            <li>
+          {routine.tags.map((tag, index) => (
+            <li key={index}>
               #{tag.name}
             </li>
           ))}
@@ -33,15 +34,18 @@ export class MyRoutines extends React.Component {
       </li>
     ));
     return (
-      <ul className="MyRoutines">
-        {routines}
-      </ul>
+      <div className="MyRoutines">
+        <ul className ="Routines">
+          {routines}
+        </ul>
+        <NewRoutine />
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  routines: state.routines
+  routines: state.routine.routines
 });
 
 export default connect(mapStateToProps)(MyRoutines);
