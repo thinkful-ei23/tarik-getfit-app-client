@@ -12,7 +12,9 @@ export class AddExercise extends React.Component{
   //     .dispatch(addExercise(exercise));
   // }
 
-  
+  onClick(e) {
+    console.log(e);
+  }
   render() {
     return(
       <section>
@@ -22,7 +24,7 @@ export class AddExercise extends React.Component{
         <Field name="sets" id="sets" type="number" component={Input} />
         <label htmlFor="reps">reps:</label>
         <Field name="reps" id="reps" type="number" component={Input} />
-        <button type="button">X</button>
+        <button type="button" onClick={(e) => this.onClick(e)}>X</button>
       </section>
     )
   }

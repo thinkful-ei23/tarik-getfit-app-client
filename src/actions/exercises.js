@@ -45,3 +45,9 @@ export const addExerciseForm = (form) => ({
   type: ADD_EXERCISE_FORM,
   form
 });
+
+export const REMOVE_EXERCISE_FORM = 'REMOVE_EXERCISE_FORM';
+export const removeExerciseForm = (index) => ({
+  type: REMOVE_EXERCISE_FORM,
+  index
+})
