@@ -35,10 +35,10 @@ export class MyRoutines extends React.Component {
     ));
     return (
       <div className="MyRoutines">
+        <NewRoutine />
         <ul className ="Routines">
           {routines}
         </ul>
-        <NewRoutine />
       </div>
     )
   }

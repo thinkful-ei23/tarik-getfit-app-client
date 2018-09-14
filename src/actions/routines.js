@@ -77,3 +77,8 @@ export const addRoutine = (routine) => dispatch => {
     dispatch(addRoutineError(err));
   });
 };
+
+export const TOGGLE_ADD_ROUTINE_FORM = 'TOGGLE_ADD_ROUTINE_FORM';
+export const toggleAddRoutineForm = () => ({
+  type: TOGGLE_ADD_ROUTINE_FORM
+})

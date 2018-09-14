@@ -43,9 +43,5 @@ export class NewRoutineForm extends React.Component {
 }
 
 export default reduxForm({
-    form: 'new-routine',
-    initialValues: {
-      title: 'New Workout',
-      description: 'New description'
-    }
+    form: 'new-routine'
   })(NewRoutineForm);
