@@ -3,13 +3,25 @@ import {reduxForm, Field, FormSection} from 'redux-form';
 import Exercises from './exercises';
 import Input from './input';
 import {required} from '../validators';
-import {addExercise} from '../actions/exercises';
+import {addRoutine} from '../actions/routines';
  
 export class NewRoutineForm extends React.Component {
   onSubmit(values) {
     console.log(values);
     const {title, description, exercises} = values;
-    exercises.forEach(exercise => this.props.dispatch(exercise));
+    const mappedExercises = exercises.map(exercise => ({
+      name: exercise.name,
+      sets: Number(exercise.sets),
+      reps: Number(exercise.reps)
+    }));
+
+    const newRoutine = {
+      title,
+      description, 
+      exercises: mappedExercises
+    }
+    
+    this.props.dispatch(addRoutine(newRoutine));
   }
 
   render() {
@@ -31,5 +43,9 @@ export class NewRoutineForm extends React.Component {
 }
 
 export default reduxForm({
-    form: 'new-routine'
+    form: 'new-routine',
+    initialValues: {
+      title: 'New Workout',
+      description: 'New description'
+    }
   })(NewRoutineForm);

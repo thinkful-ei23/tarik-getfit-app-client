@@ -35,4 +35,45 @@ export const fetchRoutines = () => dispatch => {
   }).catch(err => {
     dispatch(fetchRoutinesError(err));
   })
-}
+};
+
+export const ADD_ROUTINE_REQUEST = 'ADD_ROUTINE_REQUEST';
+export const addRoutineRequest = () => ({
+  type: ADD_ROUTINE_REQUEST
+});
+
+export const ADD_ROUTINE_SUCCESS = 'ADD_ROUTINE_SUCCESS';
+export const addRoutineSuccess = (routine) => ({
+  type: ADD_ROUTINE_SUCCESS,
+  routine
+});
+
+export const ADD_ROUTINE_ERROR = 'ADD_ROUTINE_ERROR';
+export const addRoutineError = (error) => ({
+  type: ADD_ROUTINE_ERROR,
+  error
+});
+
+export const addRoutine = (routine) => dispatch => {
+  dispatch(addRoutineRequest());
+  fetch(`${API_BASE_URL}/api/routines`, {
+    method: 'POST',
+    body: JSON.stringify(routine),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  })
+  .then((routine) => {
+    console.log(routine);
+    dispatch(addRoutineSuccess(routine));
+  })
+  .catch(err => {
+    dispatch(addRoutineError(err));
+  });
+};
