@@ -5,14 +5,21 @@ import {
   ADD_ROUTINE_REQUEST,
   ADD_ROUTINE_SUCCESS,
   ADD_ROUTINE_ERROR,
-  TOGGLE_ADD_ROUTINE_FORM
+  TOGGLE_ADD_ROUTINE_FORM,
+  TOGGLE_EDIT_MODE,
+  DELETE_ROUTINE_REQUEST,
+  DELETE_ROUTINE_SUCCESS,
+  DELETE_ROUTINE_ERROR
 } from '../actions/routines';
 
 const initialState = {
   routines: [],
   loading: false,
   error: null, 
-  toggleAddRoutineForm: false
+  toggleAddRoutineForm: false,
+  addedExercises: [],
+  deletedExercises: [],
+  routineInEdit: null
 }
 
 export const routinesReducer = (state=initialState, action) => {
@@ -23,8 +30,14 @@ export const routinesReducer = (state=initialState, action) => {
   }
 
   else if (action.type === FETCH_ROUTINES_SUCCESS) {
+    const routines = action.routines.map(routine => {
+      return Object.assign({}, routine, {
+        editMode: false
+      });
+    });
+
     return Object.assign({}, state, {
-      routines: action.routines,
+      routines,
       loading: false
     });
   }
@@ -38,7 +51,7 @@ export const routinesReducer = (state=initialState, action) => {
   
   else if (action.type === TOGGLE_ADD_ROUTINE_FORM) {
     return Object.assign({}, state, {
-      toggleAddRoutineForm: true
+      toggleAddRoutineForm: !state.toggleAddRoutineForm
     })
   }
 
@@ -49,6 +62,7 @@ export const routinesReducer = (state=initialState, action) => {
   }
 
   else if (action.type === ADD_ROUTINE_SUCCESS) {
+
     return Object.assign({}, state, {
       loading: false,
       routines: [ ...state.routines, action.routine],
@@ -57,6 +71,44 @@ export const routinesReducer = (state=initialState, action) => {
   }
 
   else if (action.type === ADD_ROUTINE_ERROR) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error
+    });
+  }
+
+  else if (action.type === TOGGLE_EDIT_MODE) {
+    let routineInEdit;
+    const routines = state.routines.map((routine, index) => {
+      if (index === action.index) {
+        routine.editMode = true;
+        routineInEdit = routine;
+      }
+      return routine;
+    });
+
+    return Object.assign({}, state, {
+      routines,
+      routineInEdit
+    });
+  }
+
+  else if (action.type === DELETE_ROUTINE_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+      error: null
+    });
+  }
+
+  else if (action.type === DELETE_ROUTINE_SUCCESS) {
+    const routines = state.routines.filter((routine) => routine.id !== action.id);
+    return Object.assign({}, state, {
+      routines,
+      loading: false
+    });
+  }
+
+  else if (action.type === DELETE_ROUTINE_ERROR) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error

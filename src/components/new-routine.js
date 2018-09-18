@@ -11,7 +11,7 @@ export class NewRoutine extends React.Component{
     if (this.props.toggleAddRoutineForm === true) {
       return (
         <section className="NewRoutine">
-          <button type="button" className="AddNewRoutineForm" >New Routine</button>
+          <button type="button" className="AddNewRoutineForm" onClick={() => this.addForm()}>New Routine</button>
           <NewRoutineForm />
         </section>
       )

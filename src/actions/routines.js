@@ -17,12 +17,13 @@ export const fetchRoutinesError = (error) => ({
   error
 });
 
-export const fetchRoutines = () => dispatch => {
+export const fetchRoutines = () => (dispatch, getState) => {
   dispatch(fetchRoutinesRequest());
+  const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/api/routines`, {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json'
+      Authorization: `Bearer ${authToken}`
     }
   })
   .then(res => {
@@ -54,13 +55,15 @@ export const addRoutineError = (error) => ({
   error
 });
 
-export const addRoutine = (routine) => dispatch => {
+export const addRoutine = (routine) => (dispatch, getState) => {
   dispatch(addRoutineRequest());
+  const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/api/routines`, {
     method: 'POST',
     body: JSON.stringify(routine),
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`
     }
   })
   .then(res => {
@@ -70,7 +73,6 @@ export const addRoutine = (routine) => dispatch => {
     return res.json();
   })
   .then((routine) => {
-    console.log(routine);
     dispatch(addRoutineSuccess(routine));
   })
   .catch(err => {
@@ -78,7 +80,67 @@ export const addRoutine = (routine) => dispatch => {
   });
 };
 
+export const UPDATE_ROUTINE_REQUEST = 'UPDATE_ROUTINE_REQUEST';
+export const updateRoutineRequest = () => ({
+  type: UPDATE_ROUTINE_REQUEST
+});
+
+export const UPDATE_ROUTINE_SUCCESS = 'UPDATE_ROUTINE_SUCCESS';
+export const updateRoutineSuccess = (routine) => ({
+  type: UPDATE_ROUTINE_SUCCESS,
+  routine
+});
+
+export const UPDATE_ROUTINE_ERROR = 'UPDATE_ROUTINE_ERROR';
+export const updateRoutineError = (error) => ({
+  type: UPDATE_ROUTINE_ERROR,
+  error
+});
+
+export const DELETE_ROUTINE_REQUEST = 'DELETE_ROUTINE_REQUEST';
+export const deleteRoutineRequest = () => ({
+  type: DELETE_ROUTINE_REQUEST
+});
+
+export const DELETE_ROUTINE_SUCCESS = 'DELETE_ROUTINE_SUCCESS';
+export const deleteRoutineSuccess = (id) => ({
+  type: DELETE_ROUTINE_SUCCESS,
+  id
+});
+
+export const DELETE_ROUTINE_ERROR = 'DELETE_ROUTINE_ERROR';
+export const deleteRoutineError = (error) => ({
+  type: DELETE_ROUTINE_ERROR,
+  error
+});
+
+export const deleteRoutine = (id) => (dispatch, getState) => {
+  dispatch(deleteRoutineRequest());
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/api/routines/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    dispatch(deleteRoutineSuccess(id));
+  })
+  .catch(err => {
+    dispatch(deleteRoutineError(err));
+  })
+}
+
 export const TOGGLE_ADD_ROUTINE_FORM = 'TOGGLE_ADD_ROUTINE_FORM';
 export const toggleAddRoutineForm = () => ({
   type: TOGGLE_ADD_ROUTINE_FORM
-})
+});
+
+export const TOGGLE_EDIT_MODE = 'TOGGLE_EDIT_MODE';
+export const toggleEditMode = (index) => ({
+  type: TOGGLE_EDIT_MODE,
+  index
+});
