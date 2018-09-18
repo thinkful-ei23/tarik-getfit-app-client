@@ -71,11 +71,9 @@ export const addRoutine = (routine) => (dispatch, getState) => {
       return Promise.reject(res.statusText);
     }
     return res.json();
-  })
-  .then((routine) => {
+  }).then((routine) => {
     dispatch(addRoutineSuccess(routine));
-  })
-  .catch(err => {
+  }).catch(err => {
     dispatch(addRoutineError(err));
   });
 };
@@ -96,6 +94,29 @@ export const updateRoutineError = (error) => ({
   type: UPDATE_ROUTINE_ERROR,
   error
 });
+
+export const updateRoutine = (routine, id) => (dispatch, getState) => {
+  dispatch(updateRoutineRequest());
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/api/routines/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(routine),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  }).then((routine) => {
+    dispatch(updateRoutineSuccess(routine));
+  }).catch(err => {
+    dispatch(updateRoutineError(err));
+  })
+};
 
 export const DELETE_ROUTINE_REQUEST = 'DELETE_ROUTINE_REQUEST';
 export const deleteRoutineRequest = () => ({

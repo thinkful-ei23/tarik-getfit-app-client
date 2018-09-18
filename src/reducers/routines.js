@@ -9,7 +9,10 @@ import {
   TOGGLE_EDIT_MODE,
   DELETE_ROUTINE_REQUEST,
   DELETE_ROUTINE_SUCCESS,
-  DELETE_ROUTINE_ERROR
+  DELETE_ROUTINE_ERROR,
+  UPDATE_ROUTINE_REQUEST,
+  UPDATE_ROUTINE_SUCCESS,
+  UPDATE_ROUTINE_ERROR
 } from '../actions/routines';
 
 const initialState = {
@@ -17,8 +20,6 @@ const initialState = {
   loading: false,
   error: null, 
   toggleAddRoutineForm: false,
-  addedExercises: [],
-  deletedExercises: [],
   routineInEdit: null
 }
 
@@ -62,10 +63,13 @@ export const routinesReducer = (state=initialState, action) => {
   }
 
   else if (action.type === ADD_ROUTINE_SUCCESS) {
+    const newRoutine = Object.assign({}, action.routine, {
+      editMode: false
+    });
 
     return Object.assign({}, state, {
       loading: false,
-      routines: [ ...state.routines, action.routine],
+      routines: [ ...state.routines, newRoutine],
       toggleAddRoutineForm: false
     });
   }
@@ -90,6 +94,37 @@ export const routinesReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       routines,
       routineInEdit
+    });
+  }
+
+  else if (action.type === UPDATE_ROUTINE_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+      error: false
+    });
+  }
+
+  else if (action.type === UPDATE_ROUTINE_SUCCESS) {
+    console.log('UPDATE_ROUTINE_SUCCESS RAN!');
+    
+    const updatedRoutine = Object.assign({}, action.routine, {
+      editMode: false
+    });
+
+    const routines = state.routines.map(routine => routine.id === updatedRoutine.id ? updatedRoutine : routine);
+    console.log(routines);
+    return Object.assign({}, state, {
+      routines,
+      loading: false,
+      routineInEdit: null
+    });
+  }
+
+  else if (action.type === UPDATE_ROUTINE_ERROR) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error,
+      routineInEdit: null
     });
   }
 

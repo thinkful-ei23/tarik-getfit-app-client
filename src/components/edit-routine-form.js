@@ -5,6 +5,7 @@ import {required} from '../validators';
 import AddExercise from './add-exercise';
 import PopulateExercise from './populate-exercise';
 import {connect} from 'react-redux';
+import { updateRoutine } from '../actions/routines';
  
 export class EditRoutineForm extends React.Component {
   state= {
@@ -21,10 +22,8 @@ export class EditRoutineForm extends React.Component {
     this.populateExerciseForms(populate);
   }
 
-  onSubmit(values) {
-    console.log(values);
+  onSubmit(values, id) {
     const {title, description, exercises} = values;
-    console.log(exercises);
     const mappedExercises = exercises.map(exercise => ({
       name: exercise.name,
       sets: Number(exercise.sets),
@@ -38,8 +37,7 @@ export class EditRoutineForm extends React.Component {
     }
 
     console.log(newRoutine);
-    
-    // this.props.dispatch(addRoutine(newRoutine));
+    this.props.dispatch(updateRoutine(newRoutine, id));
   }
 
   addExercise() {
@@ -71,7 +69,7 @@ export class EditRoutineForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values, this.props.routineInEdit.id))}>
         <label htmlFor="title">title:</label>
         <Field name="title" id="title" type="text" component={Input} validate={[required]} />
         <label htmlFor="description">description:</label>
