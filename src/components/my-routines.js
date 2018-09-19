@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import { fetchRoutines, toggleEditMode, deleteRoutine } from '../actions/routines';
+import { fetchRoutines, toggleEditMode, deleteRoutine, toggleExpanded } from '../actions/routines';
 import NewRoutine from './new-routine';
 import EditRoutineForm from './edit-routine-form';
 import SearchBar from './search-bar';
@@ -18,6 +18,11 @@ export class MyRoutines extends React.Component {
     this.props.dispatch(toggleEditMode(index))
   }
 
+  viewExpanded(index) {
+    console.log('toggleExpanded ran!');
+    this.props.dispatch(toggleExpanded(index));
+  }
+
   deleteRoutine(id) {
     this.props.dispatch(deleteRoutine(id));
   }
@@ -29,11 +34,18 @@ export class MyRoutines extends React.Component {
 
   render () {
     const routines = this.props.routines.map((routine, index) => {
-      if (routine.editMode) {
+      if (!routine.expanded) {
+        return (
+        <li className="routine" key={index} onClick={() => this.viewExpanded(index)}>
+          <span>{routine.title}</span>
+        </li>
+      )
+      }
+      else if (routine.editMode) {
         return <EditRoutineForm key={index} />
       }
       return (
-        <li className="routine" key={index}>
+        <li className="routine" key={index} onClick={() => this.viewExpanded(index)}>
           <span>{routine.title}</span>
           <p>Description/Notes: {routine.description}</p>
           <ul>
