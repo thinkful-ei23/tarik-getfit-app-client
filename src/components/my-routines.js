@@ -4,6 +4,7 @@ import requiresLogin from './requires-login';
 import { fetchRoutines, toggleEditMode, deleteRoutine } from '../actions/routines';
 import NewRoutine from './new-routine';
 import EditRoutineForm from './edit-routine-form';
+import SearchBar from './search-bar';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
@@ -14,7 +15,7 @@ export class MyRoutines extends React.Component {
 
   editRoutine(index) {
     console.log('editRoutine ran!');
-    this.props.dispatch(toggleEditMode(index));
+    this.props.dispatch(toggleEditMode(index))
   }
 
   deleteRoutine(id) {
@@ -27,7 +28,7 @@ export class MyRoutines extends React.Component {
   }
 
   render () {
-    const routines = this.props.routines.map((routine, index) => {
+    const routines = this.props.filteredRoutines.map((routine, index) => {
       if (routine.editMode) {
         return <EditRoutineForm key={index} />
       }
@@ -74,6 +75,7 @@ export class MyRoutines extends React.Component {
         </div>
         {logOutButton}
         <NewRoutine />
+        <SearchBar />
         <ul className ="Routines">
           {routines}
         </ul>
@@ -85,7 +87,8 @@ export class MyRoutines extends React.Component {
 const mapStateToProps = (state) => ({
   routines: state.routine.routines,
   name: `${state.auth.currentUser.firstName}`,
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  filteredRoutines: state.routine.filteredRoutines
 });
 
 export default requiresLogin()(connect(mapStateToProps)(MyRoutines));

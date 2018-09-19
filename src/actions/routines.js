@@ -165,3 +165,9 @@ export const toggleEditMode = (index) => ({
   type: TOGGLE_EDIT_MODE,
   index
 });
+
+export const ROUTINES_FILTER = 'ROUTINES_FILTER';
+export const routinesFilter = (filter) => ({
+  type: ROUTINES_FILTER,
+  filter
+});

@@ -12,7 +12,8 @@ import {
   DELETE_ROUTINE_ERROR,
   UPDATE_ROUTINE_REQUEST,
   UPDATE_ROUTINE_SUCCESS,
-  UPDATE_ROUTINE_ERROR
+  UPDATE_ROUTINE_ERROR,
+  ROUTINES_FILTER
 } from '../actions/routines';
 
 const initialState = {
@@ -20,7 +21,8 @@ const initialState = {
   loading: false,
   error: null, 
   toggleAddRoutineForm: false,
-  routineInEdit: null
+  routineInEdit: null,
+  filteredRoutines: []
 }
 
 export const routinesReducer = (state=initialState, action) => {
@@ -39,6 +41,7 @@ export const routinesReducer = (state=initialState, action) => {
 
     return Object.assign({}, state, {
       routines,
+      filteredRoutines: routines,
       loading: false
     });
   }
@@ -47,6 +50,13 @@ export const routinesReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       loading: false,
       error: action.error
+    });
+  }
+
+  else if (action.type === ROUTINES_FILTER) {
+    const filteredRoutines = state.routines.filter(routine => routine.title.toLowerCase().includes(action.filter.toLowerCase()));
+    return Object.assign({}, state, {
+      filteredRoutines
     });
   }
   
@@ -106,7 +116,7 @@ export const routinesReducer = (state=initialState, action) => {
 
   else if (action.type === UPDATE_ROUTINE_SUCCESS) {
     console.log('UPDATE_ROUTINE_SUCCESS RAN!');
-    
+
     const updatedRoutine = Object.assign({}, action.routine, {
       editMode: false
     });
