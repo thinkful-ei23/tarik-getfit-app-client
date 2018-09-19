@@ -80,6 +80,7 @@ export const routinesReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       loading: false,
       routines: [ ...state.routines, newRoutine],
+      filteredRoutines: [...state.routines, newRoutine],
       toggleAddRoutineForm: false
     });
   }
@@ -103,6 +104,7 @@ export const routinesReducer = (state=initialState, action) => {
 
     return Object.assign({}, state, {
       routines,
+      filteredRoutines: routines,
       routineInEdit
     });
   }
@@ -121,10 +123,11 @@ export const routinesReducer = (state=initialState, action) => {
       editMode: false
     });
 
-    const routines = state.routines.map(routine => routine.id === updatedRoutine.id ? updatedRoutine : routine);
+    const routines = state.routines.map(routine => routine.id === action.routine.id ? updatedRoutine : routine);
     console.log(routines);
     return Object.assign({}, state, {
       routines,
+      filteredRoutines: routines,
       loading: false,
       routineInEdit: null
     });
@@ -149,6 +152,7 @@ export const routinesReducer = (state=initialState, action) => {
     const routines = state.routines.filter((routine) => routine.id !== action.id);
     return Object.assign({}, state, {
       routines,
+      filteredRoutines: routines,
       loading: false
     });
   }

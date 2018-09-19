@@ -28,7 +28,7 @@ export class MyRoutines extends React.Component {
   }
 
   render () {
-    const routines = this.props.filteredRoutines.map((routine, index) => {
+    const routines = this.props.routines.map((routine, index) => {
       if (routine.editMode) {
         return <EditRoutineForm key={index} />
       }

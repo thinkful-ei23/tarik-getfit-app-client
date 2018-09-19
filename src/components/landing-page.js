@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
-
+import {Redirect} from 'react-router-dom';
+import './landing-page.css';
 import LoginForm from './login-form';
 
 export function LandingPage(props) {
@@ -11,9 +11,8 @@ export function LandingPage(props) {
 
   return (
     <div className="login">
-      <h2>GETFIT: Fitness Routine App</h2>
+      <h2>GETFIT</h2>
       <LoginForm />
-      <Link to="/register">Register</Link>
     </div>
   )
 }
