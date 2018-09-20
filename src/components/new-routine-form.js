@@ -9,18 +9,27 @@ export class NewRoutineForm extends React.Component {
   onSubmit(values) {
     console.log(values);
     const {title, description, exercises} = values;
-    const mappedExercises = exercises.map(exercise => ({
-      name: exercise.name,
-      sets: Number(exercise.sets),
-      reps: Number(exercise.reps)
-    }));
-
-    const newRoutine = {
-      title,
-      description, 
-      exercises: mappedExercises
+    let newRoutine;
+    if (exercises) {
+      const mappedExercises = exercises.map(exercise => ({
+        name: exercise.name,
+        sets: Number(exercise.sets),
+        reps: Number(exercise.reps)
+      }));
+  
+      newRoutine = {
+        title,
+        description, 
+        exercises: mappedExercises
+      }
+    } else {
+      newRoutine = {
+        title,
+        description, 
+        exercises
+      }
     }
-    
+      
     this.props.dispatch(addRoutine(newRoutine));
   }
 

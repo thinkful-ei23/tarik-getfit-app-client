@@ -57,18 +57,12 @@
 
 .header {
  background-color: #F1EEEB;
- color: #45474A
+ color: #45474A;
+ text-align: center
 }
 
 .header > * {
-  display: inline-block
-}
-
-.header > h2 {
-}
-
-#SearchBar {
-  margin-left: 30px
+  display: inline-block;
 }
 
 .logout {
@@ -79,24 +73,23 @@
   margin-top: 10px;
 }
 .user-greeting {
-  margin-left: 36px;
   margin-right: 20px
 }
 
 .Routines {
   list-style: none;
   padding-left: 0;
+  text-align: center
 }
 .routine {
   display: inline-block;
-  margin-left: 10px;
   margin-bottom: 20px;
   border: 1px solid #87D488;
   padding: 10px;
   border-radius: 10px;
   background-color: #87D488;
   color:#FFFFFF;
-  width: 80%
+  width: 80%;
 }
 
 .routine-title {
@@ -142,17 +135,53 @@
 }
 
 @media only screen and (min-width: 360px) {
-
+  .NewRoutine, .MyRoutines > h3 {
+    margin-left: 10px
+  }
 }
 
 @media only screen and (min-width: 411px) {
- 
+  .NewRoutine, .MyRoutines > h3 {
+    margin-left: 15px
+  }
 }
 
 @media only screen and (min-width: 760px) {
+  .NewRoutine, .MyRoutines > h3 {
+    margin-left: 30px
+  }
 
+  .MyRoutines {
+    width: 60%
+  }
+
+  .logout {
+    margin-left: 120px
+  }
+
+  #SearchBar {
+    margin-left: 40px
+  }
+
+  .user-greeting {
+    margin-left: -65px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .NewRoutine, .MyRoutines > h3 {
+    margin-left: 35px
+  }
 
+  .MyRoutines {
+    width: 35%
+  }
+
+  .user-greeting {
+    margin-left: -40px;
+  }
+
+  .logout {
+    margin-left: 160px
+  }
 }

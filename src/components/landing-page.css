@@ -7,6 +7,10 @@
   text-align: center
 }
 
+.login-data, .login-confirm {
+  text-align: center
+}
+
 .login-form {
   padding: 25px;
   border: 1px solid #FFFFFF;
@@ -19,6 +23,7 @@
 }
 
 .login-button {
+  margin-left: -10px;
   background-color: #B4E4B4;
   border: 2px solid #B4E4B4;
   border-radius: 5px;
