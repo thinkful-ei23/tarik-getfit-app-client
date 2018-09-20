@@ -1,0 +1,158 @@
+.MyRoutines {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.AddNewRoutineForm, .edit, .delete, .add-exercise, .delete-exercise, .save-routine {
+  background-color: #B4E4B4;
+  border: 2px solid #B4E4B4;
+  border-radius: 5px;
+  color: white;
+}
+
+.add-exercise, .save-routine {
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+.delete-exercise {
+  margin-bottom: 20px
+}
+
+.add-exercise-form {
+  margin-top: 20px
+}
+
+.AddNewRoutineForm:hover, .logout:hover, .add-exercise:hover, .save-routine:hover {
+  background-color: #87D488;
+  border: 2px solid #87D488;
+}
+
+.new-routine-form {
+  margin-top: 30px;
+  margin-bottom: 50px
+}
+
+.edit:hover {
+  background-color: #428F43;
+  border: 2px solid #428F43;
+}
+
+.delete:hover, .delete-exercise:hover {
+  background-color: #ff4f4f;
+  border: 2px solid #ff4f4f;
+}
+
+.edit, .delete {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 35px;
+  margin-bottom: 10px
+}
+
+.header {
+ background-color: #F1EEEB;
+ color: #45474A
+}
+
+.header > * {
+  display: inline-block
+}
+
+.header > h2 {
+}
+
+#SearchBar {
+  margin-left: 30px
+}
+
+.logout {
+  background-color: #B4E4B4;
+  border: 2px solid #B4E4B4;
+  border-radius: 5px;
+  color: white;
+  margin-top: 10px;
+}
+.user-greeting {
+  margin-left: 36px;
+  margin-right: 20px
+}
+
+.Routines {
+  list-style: none;
+  padding-left: 0;
+}
+.routine {
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #87D488;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #87D488;
+  color:#FFFFFF;
+  width: 80%
+}
+
+.routine-title {
+  display: block;
+  text-align: center
+}
+.routine:hover {
+  background-color: #5AC45C
+}
+
+.description {
+  padding-left: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px
+}
+
+.exercise-name {
+  display: block;
+  margin-bottom: 10px;
+  text-align: center
+}
+
+.exercises-ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.exercise-li {
+  border: 1px solid #78CE79;
+  background-color: #78CE79;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-align: center
+}
+
+.exercise-li:hover {
+  border: 1px solid #A5DEA6;
+  background-color: #A5DEA6
+}
+.exercise-li > * {
+  display: inline-block;
+  margin-right: 5px
+}
+
+@media only screen and (min-width: 360px) {
+
+}
+
+@media only screen and (min-width: 411px) {
+ 
+}
+
+@media only screen and (min-width: 760px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+}

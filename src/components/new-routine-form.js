@@ -26,7 +26,7 @@ export class NewRoutineForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form className="new-routine-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <label htmlFor="title">title:</label>
         <Field name="title" id="title" type="text" component={Input} validate={[required]} />
         <label htmlFor="description">description:</label>
@@ -36,7 +36,7 @@ export class NewRoutineForm extends React.Component {
         <FormSection name ="exercises">
           <Exercises />
         </FormSection>
-        <button type="submit">Save Routine</button>
+        <button type="submit" className="save-routine">Save Routine</button>
       </form>
     )
   }

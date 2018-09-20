@@ -161,15 +161,15 @@ export const toggleAddRoutineForm = () => ({
 });
 
 export const TOGGLE_EDIT_MODE = 'TOGGLE_EDIT_MODE';
-export const toggleEditMode = (index) => ({
+export const toggleEditMode = (id) => ({
   type: TOGGLE_EDIT_MODE,
-  index
+  id
 });
 
 export const TOGGLE_EXPANDED = 'TOGGLE_EXPANDED';
-export const toggleExpanded = (index) => ({
+export const toggleExpanded = (id) => ({
   type: TOGGLE_EXPANDED,
-  index
+  id
 });
 
 export const ROUTINES_FILTER = 'ROUTINES_FILTER';

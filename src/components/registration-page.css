@@ -7,12 +7,11 @@
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  width: 75%
+  width: 60%
 }
 
 .to-login-page {
-  position: relative;
-  left: 50%
+  margin-left: 80px;
 }
 
 .home > h2 {
@@ -35,8 +34,26 @@
   border: 2px solid #87D488;
 }
 
+@media only screen and (min-width: 360px) {
+  .registration-form {
+    width: 55%
+  }
+}
+
+@media only screen and (min-width: 411px) {
+  .registration-form {
+    width: 46%
+  }
+}
+
 @media only screen and (min-width: 760px) {
   .registration-form {
-    width: 50%
+    width: 25%
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .registration-form {
+    width: 19%
   }
 }

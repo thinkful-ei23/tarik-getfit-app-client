@@ -43,7 +43,7 @@ export class EditRoutineForm extends React.Component {
   addExercise() {
     console.log('Adding an add-exercise form!');
     this.setState({
-      exerciseForms: [ ...this.state.exerciseForms, <AddExercise key={Number(this.state.exerciseForms.length)} index={Number(this.state.exerciseForms.length)} deleteExercise={(e) => this.deleteExercise(e)} />]
+      exerciseForms: [ ...this.state.exerciseForms, <AddExercise key={Number(this.state.exerciseForms.length)} index={Number(this.state.exerciseForms.length)} deleteExercise={(e) => this.deleteExercise(e)}/>]
     });
   }
 
@@ -84,7 +84,7 @@ export class EditRoutineForm extends React.Component {
             </div>
           </div>
         </FormSection>
-        <button type="submit">Save Routine</button>
+        <button type="submit" className="save-routine">Save Routine</button>
       </form>
     )
   }

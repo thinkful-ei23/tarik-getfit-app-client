@@ -63,16 +63,25 @@ export const routinesReducer = (state=initialState, action) => {
   }
 
   else if (action.type === TOGGLE_EXPANDED) {
-    const routines = state.routines.map((routine, index) => {
-      if (index === action.index) {
+    const expandedRoutine = state.routines
+      .filter(routine => routine.id === action.id)
+      .map(routine => {
         routine.expanded = !routine.expanded;
-      }
-      return routine;
-    });
+        return routine;
+      });
+    const routines = state.routines.map(routine => routine.id === action.id ? expandedRoutine[0] : routine);
+    const filteredRoutines = state.filteredRoutines.map(routine => routine.id === action.id ? expandedRoutine[0] : routine);
+    // const routines = state.routines.map(routine => {
+    //   if (routine.id === action.id) {
+    //     routine.expanded = !routine.expanded;
+    //     console.log(state.filteredRoutines);
+    //   }
+    //   return routine;
+    // });
 
     return Object.assign({}, state, {
       routines,
-      filteredRoutines: routines
+      filteredRoutines
     });
   }
   
@@ -111,17 +120,31 @@ export const routinesReducer = (state=initialState, action) => {
 
   else if (action.type === TOGGLE_EDIT_MODE) {
     let routineInEdit;
-    const routines = state.routines.map((routine, index) => {
-      if (index === action.index) {
+
+    const editRoutine = state.routines
+      .filter(routine => routine.id === action.id)
+      .map(routine => {
         routine.editMode = true;
+        routine.expanded = false;
         routineInEdit = routine;
-      }
-      return routine;
-    });
+        return routine;
+      });
+
+    const routines = state.routines.map(routine => routine.id === action.id ? editRoutine[0] : routine);
+    const filteredRoutines = state.filteredRoutines.map(routine => routine.id === action.id ? editRoutine[0] : routine);
+
+    // const routines = state.routines.map(routine => {
+    //   if (routine.id === action.id) {
+    //     routine.editMode = true;
+    //     routine.expanded = false;
+    //     routineInEdit = routine;
+    //   }
+    //   return routine;
+    // });
 
     return Object.assign({}, state, {
       routines,
-      filteredRoutines: routines,
+      filteredRoutines,
       routineInEdit
     });
   }
@@ -142,10 +165,10 @@ export const routinesReducer = (state=initialState, action) => {
     });
 
     const routines = state.routines.map(routine => routine.id === action.routine.id ? updatedRoutine : routine);
-    console.log(routines);
+    const filteredRoutines = state.filteredRoutines.map(routine => routine.id === action.routine.id ? updatedRoutine : routine);
     return Object.assign({}, state, {
       routines,
-      filteredRoutines: routines,
+      filteredRoutines,
       loading: false,
       routineInEdit: null
     });

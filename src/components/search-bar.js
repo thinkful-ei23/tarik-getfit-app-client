@@ -6,7 +6,7 @@ import {routinesFilter} from '../actions/routines';
 export class SearchBar extends React.Component {
   updateSearch(e) {
     console.log(e.target.value);
-    this.props.dispatch(routinesFilter(e.target.defaultValue));
+    this.props.dispatch(routinesFilter(e.target.value));
   }
   render() {
     return (

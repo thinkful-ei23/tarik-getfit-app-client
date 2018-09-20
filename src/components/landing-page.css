@@ -1,5 +1,5 @@
 .login {
-  padding: 30px
+  padding: 30px;
 }
 
 .login > h2 {
@@ -32,13 +32,30 @@
 }
 
 .register {
-  position: relative;
-  left: 50%
+  margin-left: 80px;
+}
+
+@media only screen and (min-width: 360px) {
+  .login-form {
+    width: 65%
+  }
+}
+
+@media only screen and (min-width: 411px) {
+  .login-form {
+    width: 55%
+  }
 }
 
 @media only screen and (min-width: 760px) {
    .login-form {
-     width: 40%;
+     width: 28%;
    }
+}
+
+@media only screen and (min-width: 1024px) {
+  .login-form {
+    width: 20%
+  }
 }
 

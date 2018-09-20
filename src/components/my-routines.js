@@ -1,4 +1,5 @@
 import React from 'react';
+import './my-routines.css';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchRoutines, toggleEditMode, deleteRoutine, toggleExpanded } from '../actions/routines';
@@ -13,14 +14,14 @@ export class MyRoutines extends React.Component {
     this.props.dispatch(fetchRoutines());
   }
 
-  editRoutine(index) {
+  editRoutine(id) {
     console.log('editRoutine ran!');
-    this.props.dispatch(toggleEditMode(index))
+    this.props.dispatch(toggleEditMode(id))
   }
 
-  viewExpanded(index) {
+  viewExpanded(id) {
     console.log('toggleExpanded ran!');
-    this.props.dispatch(toggleExpanded(index));
+    this.props.dispatch(toggleExpanded(id));
   }
 
   deleteRoutine(id) {
@@ -33,40 +34,45 @@ export class MyRoutines extends React.Component {
   }
 
   render () {
-    const routines = this.props.routines.map((routine, index) => {
+    const routines = this.props.filteredRoutines.map((routine, index) => {
       if (!routine.expanded) {
         return (
-        <li className="routine" key={index} onClick={() => this.viewExpanded(index)}>
-          <span>{routine.title}</span>
+        <li className="routine" key={index} onClick={() => this.viewExpanded(routine.id)}>
+          <span className="routine-title">{routine.title}</span>
         </li>
-      )
+        )
       }
       else if (routine.editMode) {
         return <EditRoutineForm key={index} />
       }
       return (
-        <li className="routine" key={index} onClick={() => this.viewExpanded(index)}>
-          <span>{routine.title}</span>
-          <p>Description/Notes: {routine.description}</p>
-          <ul>
-            <span>Exercises:</span>
+        <li className="routine" key={index} onClick={() => this.viewExpanded(routine.id)}>
+          <span className="routine-title">{routine.title}</span>
+          <section className="description">
+            <span>Description/Notes:</span>
+            <p>
+              {routine.description}
+            </p>
+          </section>
+          <ul className="exercises-ul">
+            <span className="exercise-name">Exercises:</span>
             {routine.exercises.map((exercise, index) => (
-              <li key={index}>
+              <li key={index} className="exercise-li">
                 <p>{exercise.name}</p>
                 <span>Sets: {exercise.sets}</span>
                 <span>Reps: {exercise.reps}</span>
               </li>
             ))}
           </ul>
-          <ul>
+          {/* <ul>
             <span>Tags:</span>
             {routine.tags.map((tag, index) => (
               <li key={index}>
                 #{tag.name}
               </li>
             ))}
-          </ul>
-          <button className="edit" onClick={() => this.editRoutine(index)}>Edit</button>
+          </ul> */}
+          <button className="edit" onClick={() => this.editRoutine(routine.id)}>Edit</button>
           <button className="delete" onClick={() => this.deleteRoutine(routine.id)}>Delete</button>
         </li>
       )
@@ -80,17 +86,20 @@ export class MyRoutines extends React.Component {
     }
 
     return (
-      <div className="MyRoutines">
-        <h2>My Routines</h2>
-        <div className="UserInfo">
-          Welcome back, {this.props.name}!
+      <div className="my-routines-page">
+        <header role="banner" className="header">
+          <span className="user-greeting">Welcome back, {this.props.name}!</span>
+          <h2>GETFIT</h2>
+          <SearchBar />
+          {logOutButton}
+        </header>
+        <div className="MyRoutines">
+          <h3>My Routines</h3>
+          <NewRoutine />
+          <ul className ="Routines">
+            {routines}
+          </ul>
         </div>
-        {logOutButton}
-        <NewRoutine />
-        <SearchBar />
-        <ul className ="Routines">
-          {routines}
-        </ul>
       </div>
     )
   }
