@@ -14,14 +14,28 @@ Link to server-side Github repo:
   https://github.com/thinkful-ei23/tarik-getfit-app-server
 
 Screenshots:
-
+1.
 ![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%201.png)
+
+2.
 ![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%202.png)
+
+3.
 ![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%203.png)
+
+4.
 ![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%204.png)
+
+5.
 ![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%205.png)
+
+6.
 ![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%206.png)
+
+7.
 ![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%207.png)
+
+8.
 ![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%208.png)
 
 Tech stack details:
