@@ -50,7 +50,11 @@ Screenshots:
 
 Tech stack details:
   MERN Tech stack
-    Frontend: React-Redux;
-    Backend: Node/Express;
-    Database: MongoDB;
+  
+    Frontend: React-Redux
+    
+    Backend: Node/Express
+    
+    Database: MongoDB
+    
     Auth layer: JWT/Passport
