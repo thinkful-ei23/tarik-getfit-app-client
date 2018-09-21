@@ -31,6 +31,11 @@
 .AddNewRoutineForm:hover, .logout:hover, .add-exercise:hover, .save-routine:hover {
   background-color: #87D488;
   border: 2px solid #87D488;
+  z-index: 1000;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .new-routine-form {
@@ -41,11 +46,21 @@
 .edit:hover {
   background-color: #428F43;
   border: 2px solid #428F43;
+  z-index: 1000;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .delete:hover, .delete-exercise:hover {
   background-color: #ff4f4f;
   border: 2px solid #ff4f4f;
+  z-index: 1000;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .edit, .delete {
@@ -97,11 +112,10 @@
   text-align: center
 }
 .routine:hover {
-  background-color: #5AC45C
+  background-color: #5AC45C;
 }
 
 .description {
-  padding-left: 10px;
   margin-top: 50px;
   margin-bottom: 50px
 }
@@ -127,7 +141,7 @@
 
 .exercise-li:hover {
   border: 1px solid #A5DEA6;
-  background-color: #A5DEA6
+  background-color: #A5DEA6;
 }
 .exercise-li > * {
   display: inline-block;
@@ -138,11 +152,27 @@
   .NewRoutine, .MyRoutines > h3 {
     margin-left: 10px
   }
+
+  .edit-routine-form > .title-label {
+    margin-right: 40px;
+  }
+
+  .edit-routine-form > .description-label {
+    margin-right: 50px;
+  }
 }
 
 @media only screen and (min-width: 411px) {
   .NewRoutine, .MyRoutines > h3 {
     margin-left: 15px
+  }
+
+  .new-routine-form > label {
+    margin-right: 60px
+  }
+
+  .edit-routine-form > .description-label {
+    margin-right: 90px;
   }
 }
 
@@ -166,6 +196,19 @@
   .user-greeting {
     margin-left: -65px;
   }
+
+  .new-routine-form > label {
+    margin-right: 180px
+  }
+
+  .edit-routine-form > .description-label {
+    margin-left: 80px
+  }
+
+  .edit-routine-form > #description {
+    margin-left: 100px;
+    margin-right: 110px
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -183,5 +226,11 @@
 
   .logout {
     margin-left: 160px
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .new-routine-form > label {
+    margin-right: 280px
   }
 }

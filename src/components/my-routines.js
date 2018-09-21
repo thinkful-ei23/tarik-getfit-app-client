@@ -5,6 +5,7 @@ import requiresLogin from './requires-login';
 import { fetchRoutines, toggleEditMode, deleteRoutine, toggleExpanded } from '../actions/routines';
 import NewRoutine from './new-routine';
 import EditRoutineForm from './edit-routine-form';
+import HelpPage from './help-page';
 import SearchBar from './search-bar';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
@@ -94,6 +95,7 @@ export class MyRoutines extends React.Component {
           {logOutButton}
         </header>
         <div className="MyRoutines">
+          <HelpPage />
           <h3>My Routines</h3>
           <NewRoutine />
           <ul className ="Routines">

@@ -16,6 +16,16 @@
 
 .to-login-page {
   margin-left: 80px;
+  color: #45474A
+}
+
+.to-login-page:hover {
+  z-index: 1000;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  color: black
 }
 
 .home > h2 {
@@ -35,6 +45,11 @@
 .register-button:hover {
   background-color: #87D488;
   border: 2px solid #87D488;
+  z-index: 1000;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 
 @media only screen and (min-width: 360px) {

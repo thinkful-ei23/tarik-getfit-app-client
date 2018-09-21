@@ -29,7 +29,7 @@ export class NewRoutineForm extends React.Component {
         exercises
       }
     }
-      
+    console.log(newRoutine);
     this.props.dispatch(addRoutine(newRoutine));
   }
 
@@ -39,6 +39,7 @@ export class NewRoutineForm extends React.Component {
         <label htmlFor="title">title:</label>
         <Field name="title" id="title" type="text" component={Input} validate={[required]} />
         <label htmlFor="description">description:</label>
+        <br/>
         <Field name="description" id="description" component="textarea">
           Enter a description here...
         </Field>

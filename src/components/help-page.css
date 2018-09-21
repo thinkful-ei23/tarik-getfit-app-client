@@ -1,0 +1,108 @@
+.overlay {
+  text-align: center;
+  display: inline-block;
+	width: 95%;
+	color: #fff;
+  background: #B4E4B4;
+  border: 2px solid #B4E4B4;
+  border-radius: 5px;
+	position: absolute;
+	top: 0;
+	left: 6px;
+	z-index: 1000;
+	-webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.content {
+  padding: 20px;
+}
+
+.instructions-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.instructions-list > li {
+  margin-bottom: 20px;
+}
+
+.close-help {
+  background-color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 5px;
+  color: #B4E4B4
+}
+
+.close-help:hover {
+  background-color: #5AC45C;
+  border: 2px solid #5AC45C;
+  color: #FFF;
+  z-index: 1000;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.help {
+  float: right;
+  margin-top: 21px;
+  margin-right: 20px;
+  color: #45474A
+}
+
+.help:hover {
+  z-index: 1000;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  color: Black
+}
+
+@media only screen and (min-width: 360px) {
+  .overlay {
+    left: 7px;
+  }
+}
+
+@media only screen and (min-width: 411px) {
+  .overlay {
+    left: 8px;
+  }
+  
+}
+
+@media only screen and (min-width: 760px) {
+  .overlay {
+    left: 23px;
+    width: 93%;
+  }
+
+  .content {
+    padding: 50px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .overlay {
+    left: 50px;
+    width: 90%;
+  }
+
+  .content {
+    padding: 80px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .overlay {
+    left: 160px;
+    width: 80%;
+  }
+}

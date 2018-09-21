@@ -79,10 +79,11 @@ export class EditRoutineForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values, this.props.routineInEdit.id))}>
-        <label htmlFor="title">title:</label>
+      <form className="edit-routine-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values, this.props.routineInEdit.id))}>
+        <label htmlFor="title" className="title-label">title:</label>
         <Field name="title" id="title" type="text" component={Input} validate={[required]} />
-        <label htmlFor="description">description:</label>
+        <label className="description-label" htmlFor="description">description:</label>
+        <br />
         <Field name="description" id="description" component="textarea">
           Enter a description here...
         </Field>
