@@ -13,7 +13,16 @@ Link to deployed server application:
 Link to server-side Github repo:
   https://github.com/thinkful-ei23/tarik-getfit-app-server
 
+Screenshots:
 
+![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%201.png)
+![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%202.png)
+![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%203.png)
+![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%204.png)
+![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%205.png)
+![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%206.png)
+![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%207.png)
+![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%208.png)
 
 Tech stack details:
   MERN Tech stack
