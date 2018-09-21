@@ -14,6 +14,7 @@ Link to server-side Github repo:
   https://github.com/thinkful-ei23/tarik-getfit-app-server
 
 Screenshots:
+
 1.
 ![alt text](https://github.com/thinkful-ei23/tarik-getfit-app-client/blob/master/screenshots/Step%201.png)
 
