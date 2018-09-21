@@ -28,7 +28,8 @@
   color: black
 }
 
-.home > h2 {
+header > .registration-page-h1 {
+  background-color: #45474A;
   color: #F9F9FA;
   text-align: center
 }

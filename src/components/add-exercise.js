@@ -7,13 +7,13 @@ export default class AddExercise extends React.Component{
   render() {
     return(
       <section>
-        <FormSection className="add-exercise-form" name={`${this.props.index}`}>
+        <FormSection id="add-exercise-form" className="add-exercise-form" name={`${this.props.index}`}>
           <label htmlFor="name">name:</label>
-          <Field name="name" id="name" type="text" component={Input} validate={[required]} />
+          <Field aria-label="exercise-name" name="name" id="name" type="text" component={Input} validate={[required]} />
           <label htmlFor="sets">sets:</label>
-          <Field name="sets" className="sets" id="sets" type="number" component={Input} validate={[required, positiveNum]} />
+          <Field aria-label="exercise-sets" name="sets" className="sets" id="sets" type="number" component={Input} validate={[required, positiveNum]} />
           <label htmlFor="reps">reps:</label>
-          <Field name="reps" id="reps" className="reps" type="number" component={Input} validate={[required, positiveNum]} />
+          <Field aria-label="exercise-reps" name="reps" id="reps" className="reps" type="number" component={Input} validate={[required, positiveNum]} />
           <button type="button" className="delete-exercise" onClick={() => this.props.deleteExercise(this.props.index)}>X</button>
         </FormSection>
       </section>

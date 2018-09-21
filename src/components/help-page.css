@@ -39,8 +39,8 @@
 }
 
 .close-help:hover {
-  background-color: #5AC45C;
-  border: 2px solid #5AC45C;
+  background-color: #45474A;
+  border: 2px solid #45474A;
   color: #FFF;
   z-index: 1000;
   -webkit-transition: 0.5s;

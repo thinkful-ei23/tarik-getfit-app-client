@@ -29,12 +29,12 @@ export default class Exercises extends React.Component {
    render() {
     console.log(this.state.exerciseForms);
      return (
-       <div className="Exercises">
-        <button type="button" className="add-exercise" onClick={() => this.addExercise()}>Add Exercise</button>
+       <section className="Exercises">
+        <button aria-label="add-exercise-button" type="button" className="add-exercise" onClick={() => this.addExercise()}>Add Exercise</button>
         <div>
           {this.state.exerciseForms}
         </div>
-       </div>
+       </section>
      )
 
   }

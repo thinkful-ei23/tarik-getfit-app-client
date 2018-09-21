@@ -37,10 +37,10 @@ export class NewRoutineForm extends React.Component {
     return (
       <form className="new-routine-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <label htmlFor="title">title:</label>
-        <Field name="title" id="title" type="text" component={Input} validate={[required]} />
+        <Field aria-label="routine-title" name="title" id="title" type="text" component={Input} validate={[required]} />
         <label htmlFor="description">description:</label>
         <br/>
-        <Field name="description" id="description" component="textarea">
+        <Field aria-label="description" name="description" id="description" component="textarea">
           Enter a description here...
         </Field>
         <FormSection name ="exercises">

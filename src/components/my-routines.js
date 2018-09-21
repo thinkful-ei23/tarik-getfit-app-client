@@ -47,7 +47,7 @@ export class MyRoutines extends React.Component {
         return <EditRoutineForm key={index} />
       }
       return (
-        <li className="routine" key={index} onClick={() => this.viewExpanded(routine.id)}>
+        <li className="routine expanded" key={index} onClick={() => this.viewExpanded(routine.id)}>
           <span className="routine-title">{routine.title}</span>
           <section className="description">
             <span>Description/Notes:</span>
@@ -55,8 +55,8 @@ export class MyRoutines extends React.Component {
               {routine.description}
             </p>
           </section>
+          <span className="exercise-name">Exercises:</span>
           <ul className="exercises-ul">
-            <span className="exercise-name">Exercises:</span>
             {routine.exercises.map((exercise, index) => (
               <li key={index} className="exercise-li">
                 <p>{exercise.name}</p>
@@ -90,18 +90,18 @@ export class MyRoutines extends React.Component {
       <div className="my-routines-page">
         <header role="banner" className="header">
           <span className="user-greeting">Welcome back, {this.props.name}!</span>
-          <h2>GETFIT</h2>
+          <h1>GETFIT</h1>
           <SearchBar />
           {logOutButton}
         </header>
-        <div className="MyRoutines">
+        <main className="MyRoutines" aria-live="assertive">
           <HelpPage />
-          <h3>My Routines</h3>
+          <h2>My Routines</h2>
           <NewRoutine />
           <ul className ="Routines">
             {routines}
           </ul>
-        </div>
+        </main>
       </div>
     )
   }

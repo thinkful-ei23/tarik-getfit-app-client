@@ -10,7 +10,7 @@ export class SearchBar extends React.Component {
   }
   render() {
     return (
-      <Field name="SearchBar" id="SearchBar" type="text" component={Input} placeholder="Search for a workout routine..." onChange={(e) => this.updateSearch(e)}/>
+      <Field aria-label="SearchBar" name="SearchBar" id="SearchBar" type="text" component={Input} placeholder="Search for a workout routine..." onChange={(e) => this.updateSearch(e)}/>
     )
   }
  }

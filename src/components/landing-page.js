@@ -10,10 +10,14 @@ export function LandingPage(props) {
   }
 
   return (
-    <div className="login">
-      <h2>GETFIT</h2>
-      <LoginForm />
-    </div>
+    <section className="login">
+      <header role="banner">
+        <h1 className="login-page-h1">GETFIT</h1>
+      </header>
+      <main>
+        <LoginForm />
+      </main>
+    </section>
   )
 }
 

@@ -9,10 +9,14 @@ export function RegistrationPage(props) {
         return <Redirect to="/myRoutines" />;
     }
     return (
-        <div className="home">
-            <h2>Registration</h2>
+        <section className="home">
+          <header role="banner">
+            <h1 className="registration-page-h1">Registration</h1>
+          </header>
+          <main>
             <RegistrationForm />
-        </div>
+          </main>
+        </section>
     );
 }
 

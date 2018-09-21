@@ -9,11 +9,11 @@ export default class PopulateExercise extends React.Component{
       <section>
         <FormSection name={`${this.props.index}`}>
           <label htmlFor="name">name:</label>
-          <Field name="name" id="name" type="text" component={Input} validate={[required]} defaultValue/>
+          <Field aria-label="exercise-name" name="name" id="name" type="text" component={Input} validate={[required]} defaultValue/>
           <label htmlFor="sets">sets:</label>
-          <Field name="sets" id="sets" type="number" component={Input} validate={[required, positiveNum]} />
+          <Field aria-label="sets" name="sets" id="sets" type="number" component={Input} validate={[required, positiveNum]} />
           <label htmlFor="reps">reps:</label>
-          <Field name="reps" id="reps" type="number" component={Input} validate={[required, positiveNum]} />
+          <Field aria-label="reps" name="reps" id="reps" type="number" component={Input} validate={[required, positiveNum]} />
           <button type="button" onClick={() => this.props.deleteExercise(this.props.index)}>X</button>
         </FormSection>
       </section>

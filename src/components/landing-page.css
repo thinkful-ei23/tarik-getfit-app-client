@@ -2,7 +2,8 @@
   padding: 30px;
 }
 
-.login > h2 {
+header > .login-page-h1 {
+  background-color: #45474A;
   color: #F9F9FA;
   text-align: center
 }

@@ -13,7 +13,7 @@ export default class HelpPage extends React.Component {
   render() {
     if (this.state.showInfo) {
       return (
-        <section className="overlay" id="modal" style={{opacity: 1, visibility: 'visible'}}>
+        <section className="overlay" style={{opacity: 1, visibility: 'visible'}}>
           <section className="content">
             <h3>GETFIT</h3>
             <section className="Introduction">
