@@ -13,6 +13,22 @@ Link to deployed server application:
   
 Link to server-side Github repo:
   https://github.com/thinkful-ei23/tarik-getfit-app-server
+  
+Sample Logins:
+
+1.
+  
+  username: jshmoe
+
+  password: jshmoepassword
+  
+2.
+
+  username: jdoe
+
+  password: jdoepassword
+
+
 
 Screenshots:
 
