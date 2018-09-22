@@ -17,13 +17,11 @@ Link to server-side Github repo:
 Sample Logins:
 
 1.
-  
   username: jshmoe
 
   password: jshmoepassword
   
 2.
-
   username: jdoe
 
   password: jdoepassword
