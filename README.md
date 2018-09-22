@@ -2,7 +2,7 @@ GETFIT! Fitness Routine Application README
 
 Description:
 
-  GETFIT! is fitness routine application that allows you to create and manage a really simple, yet dynamic collection of workout routines.   As a user, you can create structured workouts, add and delete exercises, and define specific instructions/notes for your
+  GETFIT! is a fitness routine application that allows you to create and manage a really simple, yet dynamic collection of workout routines.   As a user, you can create structured workouts, add and delete exercises, and define specific instructions/notes for your
   reference.
   
 Link to deployed client-side application:
