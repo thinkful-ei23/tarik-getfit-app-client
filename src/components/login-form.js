@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
+import HelpPage from './help-page';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -25,6 +26,8 @@ export class LoginForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+                <HelpPage />
+                <br />
                 <section className="login-data">
                     {error}
                     <label htmlFor="username">Username</label>
