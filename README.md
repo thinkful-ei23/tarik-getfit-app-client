@@ -1,22 +1,11 @@
-GETFIT! Fitness Routine Application README
+# GETFIT!
+GETFIT! is a fitness routine application that allows you to create and manage a really simple, yet dynamic collection of workout routines. As a user, you can create structured workouts, add and delete exercises, and define specific instructions/notes for your reference.
 
-Description:
+## Live App
+Check out the [live app!](https://ancient-scrubland-31758.herokuapp.com/) 
 
-  GETFIT! is a fitness routine application that allows you to create and manage a really simple, yet dynamic collection of workout routines.   As a user, you can create structured workouts, add and delete exercises, and define specific instructions/notes for your
-  reference.
-  
-Link to deployed client-side application:
-  https://ancient-scrubland-31758.herokuapp.com/
-  
-Link to deployed server application:
-  https://tarik-getfit-app-server.herokuapp.com/
-  
-Link to server-side Github repo:
-  https://github.com/thinkful-ei23/tarik-getfit-app-server
-  
-  
-Sample Logins:
-
+## Sample Logins:
+```
   username: jshmoe
 
   password: jshmoepassword
@@ -25,10 +14,12 @@ Sample Logins:
   username: jdoe
 
   password: jdoepassword
+```
 
+## Server Side
+The server side GitHub repo can be found [here](https://github.com/thinkful-ei23/tarik-getfit-app-server)
 
-
-Screenshots:
+## Screenshots
 
 1. Working this app is pretty simple. Once you've created an account and are signed in, simply click the "New Routine" button to start
    your collection.
